@@ -1,0 +1,131 @@
+// https://yalter.github.io/niri/Configuration:-Input
+input {
+    keyboard {
+        xkb {
+            // For example:
+            // layout "us,ru"
+            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+
+            // If this section is empty, niri will fetch xkb settings
+            // from org.freedesktop.locale1. You can control these using
+            // localectl set-x11-keymap.
+        }
+    }
+
+    touchpad {
+        tap
+        dwt
+        natural-scroll
+        // accel-profile "flat"
+    }
+
+    mouse {}
+
+    warp-mouse-to-focus mode="center-xy"
+    focus-follows-mouse max-scroll-amount="0%"
+    mod-key "Alt"
+}
+
+layer-rule {
+    match namespace="^noctalia-overview*"
+    place-within-backdrop true
+}
+
+// https://yalter.github.io/niri/Configuration:-Outputs
+output "eDP-1" {
+    // off
+    mode "1920x1200"
+    scale 1
+    transform "normal"
+
+    // Position of the output in the global coordinate space.
+    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
+    // The cursor can only move between directly adjacent outputs.
+    // Output scale and rotation has to be taken into account for positioning:
+    // outputs are sized in logical, or scaled, pixels.
+    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
+    // so to put another output directly adjacent to it on the right, set its x to 1920.
+    // If the position is unset or results in an overlap, the output is instead placed
+    // automatically.
+    position x=0 y=0
+}
+
+// https://yalter.github.io/niri/Configuration:-Layout
+layout {
+    gaps 2
+    center-focused-column "never"
+    // default-column-display "tabbed"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    // preset-window-heights {}
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        width 1
+    }
+
+    border {
+        off
+        width 2
+    }
+
+    shadow {
+        on
+        draw-behind-window true
+        softness 25
+        spread 5
+        offset x=2 y=2
+    }
+}
+
+spawn-at-startup "qs" "-c" "noctalia-shell"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+// screenshot-path null
+
+// TODO
+// https://yalter.github.io/niri/Configuration:-Animations
+animations {
+    // off
+}
+
+// https://yalter.github.io/niri/Configuration:-Window-Rules
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id="^firefox$"
+    default-column-width { proportion 0.5; }
+}
+
+window-rule {
+    match title="yazi"
+    open-floating true
+}
+
+window-rule {
+    geometry-corner-radius 4
+    clip-to-geometry true
+}
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
+include "./binds.kdl"
+include "./noctalia.kdl"
