@@ -1,0 +1,55 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "arch_small",
+        "position": "left",
+        "padding": {
+            "top": 6,
+            "right": 4,
+	    "left": 4
+        }
+    },
+    "display": {
+        "separator": " ➜  ",
+        "color": {
+            "keys": "white",
+            "title": "white",
+            "output": "white",
+            "separator": "white"
+        },
+        "key": {
+            "width": 15 // This ensures all '➜' are vertically aligned
+        }
+    },
+    "modules": [
+        "title",
+        {
+            "type": "separator",
+            "string": "───────────"
+        },
+        // SYSTEM
+        { "type": "os", "key": "󰣇 OS" },
+        { "type": "host", "key": "󰌢 Host" },
+        { "type": "kernel", "key": "󰒋 Kernel" },
+        { "type": "uptime", "key": "󰅐 Uptime" },
+        { "type": "packages", "key": "󰏖 Packages" },
+        { "type": "shell", "key": "󱆃 Shell" },
+        { "type": "display", "key": "󰍹 Display" },
+        { "type": "wm", "key": "󱂬 WM" },
+        { "type": "terminal", "key": "󰆍 Terminal" },
+        "break",
+        // HARDWARE
+        { "type": "cpu", "key": "󰻠 CPU" },
+        { "type": "gpu", "key": "󰢮 GPU", "format": "{2}" },
+        { "type": "memory", "key": "󰍛 Memory" },
+        { "type": "swap", "key": "󰓡 Swap" },
+        { "type": "disk", "key": "󰋊 Disk" },
+        { "type": "battery", "key": "󰁹 Battery" },
+        { "type": "localip", "key": "󰩟 Local IP", "compact": true },
+        "break",
+        {
+            "type": "colors",
+            "symbol": "circle"
+        }
+    ]
+}
