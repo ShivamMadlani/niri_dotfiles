@@ -16,7 +16,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # aliases
-alias ls='eza --color=auto --long --icons -a --git --group-directories-first -H -i'
+alias ls='eza --color=auto --long --icons -a --group-directories-first -H'
 alias lsl='/usr/bin/ls --color=auto'
 
 # binds
