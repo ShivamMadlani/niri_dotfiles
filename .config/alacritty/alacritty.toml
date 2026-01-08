@@ -62,11 +62,6 @@ mods = "Control"
 action = "ClearLogNotice"
 
 [[keyboard.bindings]]
-key = "N"
-mods = "Super"
-chars = "\u001b"
-
-[[keyboard.bindings]]
 key = "Space"
 mods = "Super"
 action = "ToggleViMode"
