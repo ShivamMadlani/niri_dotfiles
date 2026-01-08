@@ -3,6 +3,7 @@ My collection of dotfiles for niriWM + noctaliaShell on arch linux
 
 ## Includes
 - Alacritty
+- kitty (for neovim)
 - zsh
 - starship
 - niri
