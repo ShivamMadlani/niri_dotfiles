@@ -3,6 +3,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+B hotkey-overlay-title="Open browser" {	spawn "firefox"; }
     Mod+E { spawn "alacritty" "--title" "yazi" "-e" "yazi"; }
+    Mod+N { spawn "kitty" "nvim"; }
     Mod+Space hotkey-overlay-title="Run an Application: Noctalia" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+" "-l" "1.0"; }
