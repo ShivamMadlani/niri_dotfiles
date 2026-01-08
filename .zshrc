@@ -22,3 +22,5 @@ alias lsl='/usr/bin/ls --color=auto'
 # binds
 bindkey -v
 export KEYTIMEOUT=10
+bindkey -M viins '^[[1;5D' backward-word
+bindkey -M viins '^[[1;5C' forward-word
