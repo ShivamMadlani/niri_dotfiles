@@ -67,11 +67,21 @@ mods = "Super"
 action = "ToggleViMode"
 
 [[keyboard.bindings]]
+key = "H"
+mods = "Super"
+chars = "\u001b[D"
+
+[[keyboard.bindings]]
 key = "J"
 mods = "Super"
-chars = "\u001b[A"
+chars = "\u001b[B"
 
 [[keyboard.bindings]]
 key = "K"
 mods = "Super"
-chars = "\u001b[B"
+chars = "\u001b[A"
+
+[[keyboard.bindings]]
+key = "L"
+mods = "Super"
+chars = "\u001b[C"
