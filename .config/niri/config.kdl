@@ -28,6 +28,9 @@ layer-rule {
 // https://yalter.github.io/niri/Configuration:-Outputs
 output "eDP-1" {
     scale 1
+    hot-corners {
+        off
+    }
 }
 
 // https://yalter.github.io/niri/Configuration:-Layout
