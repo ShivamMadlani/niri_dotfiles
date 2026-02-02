@@ -27,21 +27,7 @@ layer-rule {
 
 // https://yalter.github.io/niri/Configuration:-Outputs
 output "eDP-1" {
-    // off
-    mode "1920x1200"
     scale 1
-    transform "normal"
-
-    // Position of the output in the global coordinate space.
-    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
-    // The cursor can only move between directly adjacent outputs.
-    // Output scale and rotation has to be taken into account for positioning:
-    // outputs are sized in logical, or scaled, pixels.
-    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-    // so to put another output directly adjacent to it on the right, set its x to 1920.
-    // If the position is unset or results in an overlap, the output is instead placed
-    // automatically.
-    position x=0 y=0
 }
 
 // https://yalter.github.io/niri/Configuration:-Layout
