@@ -26,7 +26,7 @@ Fonts
 sudo pacman -S ttf-jetbrains-mono-nerd
 ```
 
-
+Shell
 ```bash
 paru -S noctalia-shell
 ```
