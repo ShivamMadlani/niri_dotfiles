@@ -1,22 +1,42 @@
-if [[ -o interactive ]]; then
-    fastfetch
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_REDUCE_BLANKS
+setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_ALL_DUPS
+
+zshaddhistory() {
+    local line=${1%%$'\n'}
+    if [[ "$line" =~ "^(ls|cd|clear|exit|pwd|history)( |$)" ]]; then
+        return 1
+    fi
+    return 0
+}
+
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.m-1) ]]; then
+  compinit -C
+else
+  compinit
 fi
 
 fpath+=(/usr/share/zsh/site-functions)
 
-autoload -Uz compinit
-compinit
+# cache Starship
+if [[ -z "$STARSHIP_INIT" ]]; then
+  export STARSHIP_INIT=1
+  source <(starship init zsh --print-full-init)
+fi
 
-eval "$(starship init zsh)"
-
-# Load autosuggestions before highlighting
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Load syntax highlighting (must be after autosuggestions)
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# use fuzzy find
-source <(fzf --zsh)
+if [[ -o interactive ]]; then
+    fastfetch
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source <(fzf --zsh)
+fi
 
 # aliases
 alias ls='eza --color=auto --long --icons -a --group-directories-first -H'
