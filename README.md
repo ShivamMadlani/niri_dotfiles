@@ -18,7 +18,7 @@ sudo pacman -S niri alacritty kitty fastfetch firefox playerctl wpctl brigntness
 
 Shell components
 ```bash
-sudo pacman -S zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions starship eza yazi
+sudo pacman -S zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions fzf starship eza yazi
 ```
 
 Fonts
