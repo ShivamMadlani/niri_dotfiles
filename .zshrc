@@ -15,6 +15,9 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Load syntax highlighting (must be after autosuggestions)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# use fuzzy find
+source <(fzf --zsh)
+
 # aliases
 alias ls='eza --color=auto --long --icons -a --group-directories-first -H'
 alias lsl='/usr/bin/ls --color=auto'
