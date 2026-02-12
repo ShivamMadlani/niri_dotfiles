@@ -13,7 +13,7 @@ My collection of dotfiles for niriWM + noctaliaShell on arch linux
 **Note**: If you choose to use these you will need below packages for system to work properly (or remove the binds/usage from niri/zsh)
 
 ```bash
-sudo pacman -S niri alacritty kitty fastfetch firefox playerctl wpctl brigntnessctl
+sudo pacman -S niri alacritty kitty fastfetch firefox wpctl brigntnessctl
 ```
 
 Shell components
