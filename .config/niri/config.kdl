@@ -92,11 +92,6 @@ window-rule {
 }
 
 window-rule {
-    match app-id="^firefox$"
-    default-column-width { proportion 0.5; }
-}
-
-window-rule {
     match app-id="yazi"
     open-floating true
     default-column-width { proportion 0.5; }
