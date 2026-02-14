@@ -1,4 +1,3 @@
-// https://yalter.github.io/niri/Configuration:-Input
 input {
     keyboard {
         xkb {
@@ -25,15 +24,14 @@ layer-rule {
     place-within-backdrop true
 }
 
-// https://yalter.github.io/niri/Configuration:-Outputs
 output "eDP-1" {
     scale 1
+
     hot-corners {
         off
     }
 }
 
-// https://yalter.github.io/niri/Configuration:-Layout
 layout {
     gaps 2
     center-focused-column "never"
@@ -45,7 +43,9 @@ layout {
         proportion 0.66667
     }
 
-    // preset-window-heights {}
+    preset-window-heights {
+        proportion 0.5
+    }
 
     default-column-width { proportion 0.5; }
 
@@ -76,15 +76,56 @@ hotkey-overlay {
 prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-// screenshot-path null
 
-// TODO
-// https://yalter.github.io/niri/Configuration:-Animations
 animations {
-    // off
+    workspace-switch {
+        spring damping-ratio=0.85 stiffness=1200 epsilon=0.00005
+    }
+
+    window-open {
+        duration-ms 200
+        curve "ease-out-expo"
+    }
+
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+
+    window-movement {
+        spring damping-ratio=0.8 stiffness=1300 epsilon=0.00005
+    }
+
+    window-resize {
+        spring damping-ratio=0.8 stiffness=1300 epsilon=0.00005
+    }
+
+    overview-open-close {
+        spring damping-ratio=0.9 stiffness=1100 epsilon=0.00005
+    }
+
+    config-notification-open-close {
+        spring damping-ratio=0.7 stiffness=1000 epsilon=0.001
+    }
+
+    exit-confirmation-open-close {
+        spring damping-ratio=0.7 stiffness=900 epsilon=0.001
+    }
+
+    recent-windows-close {
+        spring damping-ratio=0.9 stiffness=1100 epsilon=0.0001
+    }
+
+    horizontal-view-movement {
+        spring damping-ratio=0.85 stiffness=1000 epsilon=0.00005
+    }
+
+    screenshot-ui-open {
+        duration-ms 180
+        curve "ease-out-quad"
+    }
 }
 
-// https://yalter.github.io/niri/Configuration:-Window-Rules
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
@@ -99,6 +140,12 @@ window-rule {
 }
 
 window-rule {
+    match is-floating=true
+    default-column-width  { proportion 0.5; }
+    default-window-height { proportion 0.5; }
+}
+
+window-rule {
     geometry-corner-radius 4
     clip-to-geometry true
 }
@@ -108,3 +155,4 @@ debug {
 }
 
 include "./binds.kdl"
+include "./noctalia.kdl"
