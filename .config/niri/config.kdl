@@ -33,7 +33,7 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 2
+    gaps 1
     center-focused-column "never"
     // default-column-display "tabbed"
 
