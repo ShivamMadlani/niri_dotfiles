@@ -26,10 +26,14 @@ fi
 fpath+=(/usr/share/zsh/site-functions)
 
 # cache Starship
-if [[ -z "$STARSHIP_INIT" ]]; then
-  export STARSHIP_INIT=1
-  source <(starship init zsh --print-full-init)
+STARSHIP_CACHE="$HOME/.cache/.starship-init.zsh"
+
+if [[ ! -f "$STARSHIP_CACHE" ]]; then
+  starship init zsh --print-full-init > "$STARSHIP_CACHE"
+  zcompile "$STARSHIP_CACHE"
 fi
+
+source "$STARSHIP_CACHE"
 
 if [[ -o interactive ]]; then
     fastfetch
